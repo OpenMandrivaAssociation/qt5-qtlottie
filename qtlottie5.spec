@@ -22,7 +22,7 @@
 %endif
 
 Name:           qt5-qtlottie
-Version:        5.13.0
+Version:        5.13.1
 Release:        1
 Summary:        Qt%{qtmajor} Lottie
 Group:          Development/KDE and Qt
@@ -97,6 +97,7 @@ Devel files needed to build apps based on Qt Bodymovin.
 %{_qt5_libdir}/qt5/mkspecs/modules/qt_lib_bodymovin_private.pri
 %{_qt5_libdir}/libQt5Bodymovin.prl
 %{_qt5_libdir}/libQt5Bodymovin.so
+%{_libdir}/cmake/Qt5Bodymovin
 
 #------------------------------------------------------------------------------
 
