@@ -9,7 +9,7 @@
 %define qtsubminor 0
 
 %define rel 1
-%define pre        rc
+%define pre        %{nil}
 %define snapshot   0
 
 %define libqtbodymovin   %mklibname qt5bodymovin %qtmajor
@@ -30,6 +30,7 @@ License:        LGPLv2 with exceptions or GPLv3 with exceptions and GFDL
 URL:            https://www.qt.io/
 Source0:        http://download.qt.io/official_releases/qt/%{qtmajor}.%{qtminor}/%{version}/submodules/%{qttarballdir}.tar.xz
 BuildRequires:  qt5-qtbase-devel 
+BuildRequires:	qt5-qtbase-doc
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Quick)
 
