@@ -4,31 +4,27 @@
 %define build_docs 1
 %endif
 
-%define qtmajor 5
-%define qtminor 13
-%define qtsubminor 0
-
 %define rel 1
-%define pre        %{nil}
-%define snapshot   0
+%define beta beta1
 
 %define libqtbodymovin   %mklibname qt5bodymovin %qtmajor
 %define libqtbodymovin_d %mklibname qt5bodymovin -d
 
-%if %snapshot
-%define qttarballdir     qtlottie-everywhere-src-%{version}-%pre
-%else
-%define qttarballdir     qtlottie-everywhere-src-%{version}
-%endif
-
 Name:           qt5-qtlottie
-Version:        5.13.1
+Version:        5.14.0
+%if "%{beta}" != ""
+%define qttarballdir qtlottie-everywhere-src-%{version}-%{beta}
+Release:	0.%{beta}.1
+Source0:	http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
+%else
+%define qttarballdir qtlottie-everywhere-src-%{version}
 Release:        1
+Source0:        http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}/submodules/%{qttarballdir}.tar.xz
+%endif
 Summary:        Qt%{qtmajor} Lottie
 Group:          Development/KDE and Qt
 License:        LGPLv2 with exceptions or GPLv3 with exceptions and GFDL
 URL:            https://www.qt.io/
-Source0:        http://download.qt.io/official_releases/qt/%{qtmajor}.%{qtminor}/%{version}/submodules/%{qttarballdir}.tar.xz
 BuildRequires:  qt5-qtbase-devel 
 BuildRequires:	qt5-qtbase-doc
 BuildRequires:  pkgconfig(Qt5Qml)
@@ -75,7 +71,7 @@ Requires:       %{name} >= %{version}-%{release}
 Qt%{qtmajor} Bodymovin Component Library.
 
 %files -n %{libqtbodymovin}
-%{_qt5_libdir}/libQt5Bodymovin.so.%{qtmajor}{,.*}
+%{_qt5_libdir}/libQt5Bodymovin.so.*
 
 #------------------------------------------------------------------------------
 
@@ -103,7 +99,7 @@ Devel files needed to build apps based on Qt Bodymovin.
 #------------------------------------------------------------------------------
 
 %prep
-%setup -q -n qtlottie-everywhere-src-%{version}
+%autosetup -p1 -n %{qttarballdir}
 
 %build
 %qmake_qt5
