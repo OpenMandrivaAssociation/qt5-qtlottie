@@ -5,7 +5,7 @@
 %endif
 
 %define rel 1
-%define beta rc
+%define beta %{nil}
 
 %define libqtbodymovin   %mklibname qt5bodymovin %qtmajor
 %define libqtbodymovin_d %mklibname qt5bodymovin -d
