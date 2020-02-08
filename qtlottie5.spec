@@ -6,6 +6,7 @@
 
 %define rel 1
 %define beta %{nil}
+%define qtmajor %(echo %{version} |cut -d. -f1)
 
 %define libqtbodymovin   %mklibname qt5bodymovin %qtmajor
 %define libqtbodymovin_d %mklibname qt5bodymovin -d
