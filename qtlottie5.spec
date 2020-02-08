@@ -19,7 +19,7 @@ Release:	0.%{beta}.1
 Source0:	http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
 %else
 %define qttarballdir qtlottie-everywhere-src-%{version}
-Release:        2
+Release:        3
 Source0:        http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}/submodules/%{qttarballdir}.tar.xz
 %endif
 Summary:        Qt%{qtmajor} Lottie
