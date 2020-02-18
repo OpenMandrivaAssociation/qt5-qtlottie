@@ -5,21 +5,21 @@
 %endif
 
 %define rel 1
-%define beta %{nil}
+%define beta alpha
 %define qtmajor %(echo %{version} |cut -d. -f1)
 
 %define libqtbodymovin   %mklibname qt5bodymovin %qtmajor
 %define libqtbodymovin_d %mklibname qt5bodymovin -d
 
 Name:           qt5-qtlottie
-Version:        5.14.1
+Version:        5.15.0
 %if "%{beta}" != ""
 %define qttarballdir qtlottie-everywhere-src-%{version}-%{beta}
 Release:	0.%{beta}.1
 Source0:	http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
 %else
 %define qttarballdir qtlottie-everywhere-src-%{version}
-Release:        3
+Release:        1
 Source0:        http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}/submodules/%{qttarballdir}.tar.xz
 %endif
 Summary:        Qt%{qtmajor} Lottie
