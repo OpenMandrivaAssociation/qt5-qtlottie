@@ -5,7 +5,7 @@
 %endif
 
 %define rel 1
-%define beta alpha
+%define beta beta1
 %define qtmajor %(echo %{version} |cut -d. -f1)
 
 %define libqtbodymovin   %mklibname qt5bodymovin %qtmajor
