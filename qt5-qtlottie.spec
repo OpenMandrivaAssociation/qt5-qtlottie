@@ -12,16 +12,18 @@
 %define libqtbodymovin_d %mklibname qt5bodymovin -d
 
 Name:           qt5-qtlottie
-Version:        5.15.2
+Version:        5.15.3
 %if "%{beta}" != ""
 %define qttarballdir qtlottie-everywhere-src-%{version}-%{beta}
 Release:	0.%{beta}.1
 Source0:	http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}-%{beta}/submodules/%{qttarballdir}.tar.xz
 %else
-%define qttarballdir qtlottie-everywhere-src-%{version}
+%define qttarballdir qtlottie-everywhere-src-5.15.2
 Release:        1
-Source0:        http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}/submodules/%{qttarballdir}.tar.xz
+Source0:        http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/5.15.2/submodules/%{qttarballdir}.tar.xz
 %endif
+# From KDE
+Patch1000:	0001-Bump-version.patch
 Summary:        Qt%{qtmajor} Lottie
 Group:          Development/KDE and Qt
 License:        LGPLv2 with exceptions or GPLv3 with exceptions and GFDL
@@ -101,6 +103,7 @@ Devel files needed to build apps based on Qt Bodymovin.
 
 %prep
 %autosetup -p1 -n %{qttarballdir}
+%{_libdir}/qt5/bin/syncqt.pl -version %{version}
 
 %build
 %qmake_qt5
