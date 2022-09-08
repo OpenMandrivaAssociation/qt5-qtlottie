@@ -12,7 +12,7 @@
 %define libqtbodymovin_d %mklibname qt5bodymovin -d
 
 Name:           qt5-qtlottie
-Version:        5.15.5
+Version:        5.15.6
 %if "%{beta}" != ""
 %define qttarballdir qtlottie-everywhere-src-%{version}-%{beta}
 Release:	0.%{beta}.1
