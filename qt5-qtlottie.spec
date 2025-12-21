@@ -28,6 +28,7 @@ Summary:        Qt%{qtmajor} Lottie
 Group:          Development/KDE and Qt
 License:        LGPLv2 with exceptions or GPLv3 with exceptions and GFDL
 URL:            https://www.qt.io/
+BuildRequires:	make
 BuildRequires:  qt5-qtbase-devel 
 BuildRequires:	qt5-qtbase-doc
 BuildRequires:  pkgconfig(Qt5Qml)
