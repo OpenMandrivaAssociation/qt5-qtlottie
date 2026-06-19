@@ -12,7 +12,7 @@
 %define libqtbodymovin_d %mklibname qt5bodymovin -d
 
 Name:           qt5-qtlottie
-Version:        5.15.18
+Version:        5.15.19
 %if "%{beta}" != ""
 %define qttarballdir qtlottie-everywhere-src-%{version}-%{beta}
 Release:	0.%{beta}.1
@@ -20,7 +20,7 @@ Source0:	http://download.qt.io/development_releases/qt/%(echo %{version}|cut -d.
 %else
 %define qttarballdir qtlottie-everywhere-opensource-src-%{version}
 Release:        1
-Source0:        http://download.qt.io/official_releases/qt/%(echo %{version}|cut -d. -f1-2)/%{version}/submodules/%{qttarballdir}.tar.xz
+Source0:        http://download.qt.io/archive/qt/%(echo %{version}|cut -d. -f1-2)/%{version}/submodules/%{qttarballdir}.tar.xz
 %endif
 # From KDE
 # [currently no patches required]
